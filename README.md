@@ -29,16 +29,19 @@ Command Line has 4 arguements. If none given it runs the base model of logistic.
 
 We can run 7 types of models. Options availabe for modeltype are: 
 KNN,DecisionTree,RandomForest,Logistic,Xgboost,LightGBM
+
 -- python mainRunModels.py --balance under --modeltype DecisionTree
 
 - isNewData
 
 For the existing dataset (application_train.csv) we need not find the best parameters since it is known hence the arguement isNewData is set to 'no'. For any new dataset (of similar format) please set isNewDat to 'yes' , this will run the grid to find the best parameters of the models.
+
 -- python mainRunModels.py --balance under --modeltype DecisionTree --isNewData yes
 
 - test-file
 
 Optionally you can pass a test-file arguement for which the TARGET output will be written into Output.csv file
+
 -- python mainRunModels.py --balance under --modeltype DecisionTree --isNewData yes --test_file testFile/application_test.csv
 
 - balance
