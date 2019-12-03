@@ -39,18 +39,24 @@ Not passing any parameter trains the model without balancing the train dataset. 
 - python mainRunModels.py --modeltype Logistic
 
 - We apply three imbalance techniques (--balance) and 6 models that were experimented with (--modeltype). 
-Below are options availabe for modeltype:
+
+Options availabe for modeltype:
 KNN,DecisionTree,RandomForest,Logistic,Xgboost,LightGBM
 
 Below are the options available for the argument --balance:
+
 over:
+
 Oversampling - In this method the data from the minority class is replicated so that a balance can be established between the two classes.
 
 under:
+
 Undersampling - In this method the data from the majority class is removed in order to balance the data.
 
 smote:
+
 Synthetic minority oversampling technique - The over sampling of the minority dataset is done synthetically using an algorithm. Data from the minority class is not replicated. This prevent over fitting which is prevalent in oversampling.
 
 classWeights:
+
 Modify the cost function - There are several approaches-[1] one which we are using is class weights. The class weights are added to the minority class so that the cost function accounts more for error in minority class.
