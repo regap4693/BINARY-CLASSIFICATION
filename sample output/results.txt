@@ -1,0 +1,198 @@
+Base model:
+LOGISTIC:
+Final model has been fit
+       PRECISION   RECALL  F1_SCORE  ACCURACY
+Train   0.534279  0.01137  0.022267  0.919324
+Test    0.484615  0.01273  0.024808  0.919467
+Train confusion matrix
+[[225935    197]
+ [ 19650    226]]
+Test confusion matrix
+[[56487    67]
+ [ 4886    63]]
+Time taken to fit: 427.86623430252075
+
+Best parameters:
+LogisticRegression(C=0.8, class_weight=None, dual=False, fit_intercept=True,
+                   intercept_scaling=1, l1_ratio=None, max_iter=100,
+                   multi_class='warn', n_jobs=-1, penalty='l1',
+                   random_state=None, solver='warn', tol=0.0001, verbose=0,
+                   warm_start=False)
+				   
+UNDERSAMPLING:
+Shape of X and Y before balancing:  (246008, 303) (246008,)
+Class distribution:  Counter({0: 226132, 1: 19876})
+Shape of X and Y after balancing:  (39752, 303) (39752,)
+Class distribution:  Counter({0: 19876, 1: 19876})
+
+LOGISTIC:
+Final model has been fit
+       PRECISION    RECALL  F1_SCORE  ACCURACY
+Train   0.684936  0.684695  0.684816  0.684871
+Test    0.159823  0.687412  0.259348  0.684064
+Train confusion metric
+[[13616  6260]
+ [ 6267 13609]]
+Test confusion metric
+[[38670 17884]
+ [ 1547  3402]]
+Time taken to fit: 96.09670400619507
+
+Best parameters:
+LogisticRegression(C=0.2, class_weight=None, dual=False, fit_intercept=True,
+                   intercept_scaling=1, l1_ratio=None, max_iter=100,
+                   multi_class='warn', n_jobs=-1, penalty='l1',
+                   random_state=None, solver='warn', tol=0.0001, verbose=0,
+                   warm_start=False)
+
+
+
+RANDOM FOREST
+
+Finding best parameters for the model
+train shape (39752, 303) test shape (61503, 303)
+Final model has been fit
+       PRECISION    RECALL  F1_SCORE  ACCURACY
+Train   0.997836  0.997384  0.997610  0.997610
+Test    0.137067  0.642352  0.225926  0.645806
+Train confusion metric
+[[19833    43]
+ [   52 19824]]
+Test confusion metric
+[[36540 20014]
+ [ 1770  3179]]
+Time taken to fit: 42.09352684020996
+
+Best parameters:
+RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
+                       max_depth=90, max_features='auto', max_leaf_nodes=None,
+                       min_impurity_decrease=0.0, min_impurity_split=None,
+                       min_samples_leaf=1, min_samples_split=2,
+                       min_weight_fraction_leaf=0.0, n_estimators=17, n_jobs=-1,
+                       oob_score=False, random_state=None, verbose=0,
+                       warm_start=False)
+					   
+
+DECISION TREE
+
+Finding best parameters for the model
+train shape (39752, 303) test shape (61503, 303)
+Final model has been fit
+       PRECISION    RECALL  F1_SCORE  ACCURACY
+Train   0.527981  0.836838  0.647463  0.544350
+Test    0.089572  0.845221  0.161978  0.296246
+Train confusion metric
+[[ 5006 14870]
+ [ 3243 16633]]
+Test confusion metric
+[[14037 42517]
+ [  766  4183]]
+Time taken to fit: 34.27932810783386
+
+Best parameters:
+DecisionTreeClassifier(class_weight=None, criterion='gini', max_depth=1,
+                       max_features='auto', max_leaf_nodes=None,
+                       min_impurity_decrease=0.0, min_impurity_split=None,
+                       min_samples_leaf=1, min_samples_split=2,
+                       min_weight_fraction_leaf=0.0, presort=False,
+                       random_state=42, splitter='best')
+					   
+KNEAREST CLASSIFIER
+
+Finding best parameters for the model
+train shape (39752, 303) test shape (61503, 303)
+Final model has been fit
+       PRECISION    RECALL  F1_SCORE  ACCURACY
+Train   0.659779  0.674683  0.667148  0.663388
+Test    0.093622  0.560921  0.160462  0.527698
+Train confusion metric
+[[12961  6915]
+ [ 6466 13410]]
+Test confusion metric
+[[29679 26875]
+ [ 2173  2776]]
+Time taken to fit: 66.00270318984985
+
+Best parameters:
+KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
+                     metric_params=None, n_jobs=-1, n_neighbors=9, p=2,
+                     weights='uniform')
+					 
+LightGBM
+
+Final model has been fit
+       PRECISION    RECALL  F1_SCORE  ACCURACY
+Train   0.825815  0.824361  0.825087  0.825242
+Test    0.164050  0.684179  0.264645  0.694047
+Train confusion metric
+[[16420  3456]
+ [ 3491 16385]]
+Test confusion metric
+[[39300 17254]
+ [ 1563  3386]]
+Time taken to fit: 81.97083902359009
+
+Best parameters:
+LGBMClassifier(alpha=3.25, boosting_type='gbdt', class_weight=None,
+               colsample_bytree=1.0, importance_type='split', lambda=10.0,
+               learning_rate=0.07502500000000001, max_depth=21, metric='binary',
+               min_child_samples=20, min_child_weight=0.001, min_data_in_leaf=7,
+               min_split_gain=0.0, n_estimators=170, n_jobs=-1, nthreads=-1,
+               num_leaves=100, objective='binary', random_state=None,
+               rate_drop=0.65, reg_alpha=0.0, reg_lambda=0.0, seed=25,
+               silent=True, subsample=1.0, subsample_for_bin=200000,
+               subsample_freq=0)
+			   
+Final model has been fit
+       PRECISION    RECALL  F1_SCORE  ACCURACY
+Train   0.747121  0.740843  0.743969  0.745044
+Test    0.160469  0.682764  0.259863  0.687040
+Train confusion matrix
+[[14892  4984]
+ [ 5151 14725]]
+Test confusion matrix
+[[38876 17678]
+ [ 1570  3379]]
+Time taken to fit: 582.4892604351044
+
+Best parameters:
+XGBClassifier(alpha=7.75, base_score=0.5, booster='gbtree', colsample_bylevel=1,
+              colsample_bynode=1, colsample_bytree=1, eval_metric='logloss',
+              feature_selector='best', gamma=10.0, lambda=1.0,
+              learning_rate=0.1, max_delta_step=0, max_depth=11,
+              min_child_weight=1, missing=None, n_estimators=30, n_jobs=-1,
+              nthread=None, nthreads=-1, objective='binary:logistic',
+              random_state=0, rate_drop=0.9, reg_alpha=0, reg_lambda=1,
+              scale_pos_weight=1, seed=25, silent=None, subsample=1,
+              verbosity=1)
+			  
+OVERSAMPLING:
+Shape of X and Y before balancing:  (246008, 303) (246008,)
+Class distribution:  Counter({0: 226132, 1: 19876})
+Shape of X and Y after balancing:  (452264, 303) (452264,)
+Class distribution:  Counter({0: 226132, 1: 226132})
+
+DECISION TREE
+
+Finding best parameters for the model
+train shape (452264, 303) test shape (61503, 303)
+Final model has been fit
+       PRECISION    RECALL  F1_SCORE  ACCURACY
+Train   0.992831  0.999522  0.996166  0.996153
+Test    0.141152  0.150535  0.145693  0.857942
+Train confusion metric
+[[224500   1632]
+ [   108 226024]]
+Test confusion metric
+[[52021  4533]
+ [ 4204   745]]
+Time taken to fit: 174.11866283416748
+
+Best parameters:
+DecisionTreeClassifier(class_weight=None, criterion='gini', max_depth=46,
+                       max_features='auto', max_leaf_nodes=None,
+                       min_impurity_decrease=0.0, min_impurity_split=None,
+                       min_samples_leaf=1, min_samples_split=2,
+                       min_weight_fraction_leaf=0.0, presort=False,
+                       random_state=42, splitter='best')
+
