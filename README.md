@@ -17,37 +17,31 @@
 
 ## Dataset
 Below has the Train dataset "application_train.csv" required to run the program.
+This dataset is taken from the kaggle Home credit default risk. Target labels have labels 0 or 1 indicating if a given entry belongs to a defaulter or not.
 https://drive.google.com/drive/folders/1ZKjQa4dTV-Eee2O_chH0X_caHykYeKCM?usp=sharing
 Optionally you can download the "application_test.csv" to obtain the output labels.
 
 ## How to run:
 
-- Example command line:
-For Undersampling:
-- python mainRunModels.py --balance under --modeltype Logistic
-- python mainRunModels.py --balance under --modeltype KNN
-- python mainRunModels.py --balance under --modeltype DecisionTree
-- python mainRunModels.py --balance under --modeltype RandomForest
-- python mainRunModels.py --balance under --modeltype Xgboost
-- python mainRunModels.py --balance under --modeltype LightGBM
+Command Line has 4 arguements. If none given it runs the base model of logistic.
 
-Similarly for Oversampling, SMOTE
-- python mainRunModels.py --balance over --modeltype Logistic
-- python mainRunModels.py --balance smote --modeltype KNN
-
-Not passing any parameter trains the model without balancing the train dataset. Hence, below gives very low f1score when compared to when it is balanced.
-- python mainRunModels.py --modeltype Logistic
-
-- We apply three imbalance techniques (--balance) and 6 models that were experimented with (--modeltype). 
-
-Options availabe for modeltype:
+- modeltype
+We can run 7 types of models. Options availabe for modeltype are: 
 KNN,DecisionTree,RandomForest,Logistic,Xgboost,LightGBM
+-- python mainRunModels.py --balance under --modeltype DecisionTree
+
+--isNewData
+For the existing dataset (application_train.csv) we need not find the best parameters since it is known hence the arguement isNewData is set to 'no'. For any new dataset (of similar format) please set isNewDat to 'yes' , this will run the grid to find the best parameters of the models.
+-- python mainRunModels.py --balance under --modeltype DecisionTree --isNewData yes
+
+- test-file
+Optionally you can pass a test-file arguement for which the TARGET output will be written into Output.csv file
+-- python mainRunModels.py --balance under --modeltype DecisionTree --isNewData yes --test_file testFile/application_test.csv
+
+- balance
+- We can apply three imbalance techniques (--balance) and 6 models that were experimented with (--modeltype). 
 
 Below are the options available for the argument --balance:
-
-over:
-
-Oversampling - In this method the data from the minority class is replicated so that a balance can be established between the two classes.
 
 under:
 
@@ -57,6 +51,26 @@ smote:
 
 Synthetic minority oversampling technique - The over sampling of the minority dataset is done synthetically using an algorithm. Data from the minority class is not replicated. This prevent over fitting which is prevalent in oversampling.
 
+over:
+
+Oversampling - In this method the data from the minority class is replicated so that a balance can be established between the two classes.
+
 classWeights:
 
-Modify the cost function - There are several approaches-[1] one which we are using is class weights. The class weights are added to the minority class so that the cost function accounts more for error in minority class.
+Modify the cost function - There are several approaches. one which we are using is class weights. The class weights are added to the minority class so that the cost function accounts more for error in minority class.
+
+For Undersampling:
+- python mainRunModels.py --balance under --modeltype Logistic
+- python mainRunModels.py --balance under --modeltype KNN
+- python mainRunModels.py --balance under --modeltype DecisionTree
+- python mainRunModels.py --balance under --modeltype RandomForest
+- python mainRunModels.py --balance under --modeltype Xgboost
+- python mainRunModels.py --balance under --modeltype LightGBM
+
+Similarly for Oversampling, SMOTE and classWeights
+- python mainRunModels.py --balance over --modeltype Logistic
+- python mainRunModels.py --balance smote --modeltype KNN
+- python mainRunModels.py --balance classWeights --modeltype KNN
+
+Not passing any parameter trains the model without balancing the train dataset. Hence, below gives very low f1score when compared to when it is balanced.
+- python mainRunModels.py --modeltype Logistic
