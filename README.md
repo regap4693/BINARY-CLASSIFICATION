@@ -24,19 +24,19 @@ Optionally you can download the "application_test.csv" to obtain the output labe
 
 - Example command line:
 For Undersampling:
-python mainRunModels.py --balance under --modeltype Logistic
-python mainRunModels.py --balance under --modeltype KNN
-python mainRunModels.py --balance under --modeltype DecisionTree
-python mainRunModels.py --balance under --modeltype RandomForest
-python mainRunModels.py --balance under --modeltype Xgboost
-python mainRunModels.py --balance under --modeltype LightGBM
+- python mainRunModels.py --balance under --modeltype Logistic
+- python mainRunModels.py --balance under --modeltype KNN
+- python mainRunModels.py --balance under --modeltype DecisionTree
+- python mainRunModels.py --balance under --modeltype RandomForest
+- python mainRunModels.py --balance under --modeltype Xgboost
+- python mainRunModels.py --balance under --modeltype LightGBM
 
 Similarly for Oversampling, SMOTE
-python mainRunModels.py --balance over --modeltype Logistic
-python mainRunModels.py --balance smote --modeltype KNN
+- python mainRunModels.py --balance over --modeltype Logistic
+- python mainRunModels.py --balance smote --modeltype KNN
 
 Not passing any parameter trains the model without balancing the train dataset. Hence, below gives very low f1score when compared to when it is balanced.
-python mainRunModels.py --modeltype Logistic
+- python mainRunModels.py --modeltype Logistic
 
 - We apply three imbalance techniques (--balance) and 6 models that were experimented with (--modeltype). 
 Below are options availabe for modeltype:
